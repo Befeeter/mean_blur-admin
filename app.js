@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressJwt = require('express-jwt');
 
 var config = require('config.json');
 
@@ -13,9 +14,16 @@ var app = express();
 // view engine setup
 // app.set('view engine', 'ejs');
 app.set('view engine', 'html');
+app.set('admin_path',path.join(__dirname,'views','admin'+path.sep));
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// Routing for admin-
+const adminRoutes = require('./routes/adminRoutes');
+app.use('/admin',adminRoutes);
+
+// For admin Routing use
+// localhost:3000/admin/
+
+// Morgan Debugger
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Defining Routes
 app.use('/', require('./controllers/login.controller'));
+app.use('/reg', require('./controllers/reg.controller'));
 app.use('/users', require('./routes/users'));
 
 // catch 404 and forward to error handler

@@ -4,39 +4,36 @@ var router = express.Router();
 var request = require('request');
 var config = require('config.json');
 
-console.log("Inside Controller..............");
-// return false;
-
-
 router.get('/', function (req, res) {
 	console.log('Inside get login controller');
-
 	// return false;
     // log user out
     //delete req.session.token;	
-	
+
 	// check if session is exists
 	// if(req.session.token){
 	// 	// redirect to returnUrl
 	// 	var returnUrl = req.query.returnUrl && decodeURIComponent(req.query.returnUrl) || '/dashboard';
+    // res.sendfile('angular/release/auth.html');
 	// 	res.redirect(returnUrl);
-	// }
-	
+// }
+// 
     // move success message into local variable so it only appears once (single read)
     // var viewData = { success: req.session.success};
     // delete req.session.success;
 
-    // console.log('final'); return false;
     // router.use('auth', express.static('public/release'));
 
-    res.sendfile('angular/release/auth.html');
+    res.sendfile('angular/release/auth.html',{
+        title: 'Done'
+    });
     // res.redirect('auth', viewData);
 
 
 });
 
 router.post('/', function (req, res) {
-    console.log('Inside controller 1234567890');
+    console.log('Inside controller Post');
     return false;
     // console.log(config.apiUrl_local);
     // authenticate using api to maintain clean separation between layers    
@@ -59,7 +56,7 @@ router.post('/', function (req, res) {
 
         // save JWT token in the session to make it available to the angular app
         req.session.token = body.token;
-		
+
         // redirect to returnUrl
         var returnUrl = req.query.returnUrl && decodeURIComponent(req.query.returnUrl) || '/dashboard';
         res.redirect(returnUrl);
