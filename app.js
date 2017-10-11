@@ -32,9 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Defining Routes
-app.use('/', require('./controllers/login.controller'));
-app.use('/reg', require('./controllers/reg.controller'));
-app.use('/users', require('./routes/users'));
+// app.use('/', require('./controllers/login.controller'));
+// app.use('/reg', require('./controllers/reg.controller'));
+// app.use('/users', require('./routes/users'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
