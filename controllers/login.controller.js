@@ -5,8 +5,6 @@ var request = require('request');
 var config = require('config.json');
 
 router.get('/', function (req, res) {
-	console.log('Inside get login controller');
-	// return false;
     // log user out
     //delete req.session.token;	
 
@@ -24,9 +22,7 @@ router.get('/', function (req, res) {
 
     // router.use('auth', express.static('public/release'));
 
-    res.sendfile('angular/release/auth.html',{
-        title: 'Done'
-    });
+    res.sendFile(req.app.get("admin_path")+"auth.html");
     // res.redirect('auth', viewData);
 
 
@@ -34,7 +30,7 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
     console.log('Inside controller Post');
-    return false;
+    
     // console.log(config.apiUrl_local);
     // authenticate using api to maintain clean separation between layers    
     request.post({

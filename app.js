@@ -13,6 +13,7 @@ var app = express();
 
 // view engine setup
 app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.set('admin_path',path.join(__dirname,'views','admin'+path.sep));
 
 
@@ -24,9 +25,22 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// use JWT auth to secure the api
+app.use('/api', expressJwt({ secret: config.secret }).unless({
+  path: ['/api/users/authenticate', '/api/users/forgotpassword'] 
+}));
+
+//use JWT auth to secure the admin
+// app.use('/admin', expressJwt({ secret: config.secret }).unless({ 
+//   path: ['/admin'] 
+// }));
+
+
 // Routing for admin-
-const adminRoutes = require('./routes/adminRoutes');
-app.use('/admin',adminRoutes);
+app.use('/admin',require('./controllers/admin/login.controller'));
+app.use('/admin/logout',require('./controllers/admin/logout.controller'));
+
+app.use('/api/users', require('./controllers/api/users.controller'));
 
 // For admin Routing use
 // localhost:3000/admin/

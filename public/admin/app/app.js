@@ -1,5 +1,5 @@
 'use strict';
-
+console.log("Inside app controller");
 angular.module('BlurAdmin', [
   'ngAnimate',
   'ui.bootstrap',

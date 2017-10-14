@@ -4,7 +4,7 @@
  */
 (function () {
   'use strict';
-
+  console.log("Inside pages controller");
   angular.module('BlurAdmin.pages', [
     'ui.router',
 
