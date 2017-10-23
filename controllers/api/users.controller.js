@@ -42,7 +42,7 @@ function authenticateUser(req, res) {
         .then(function (token) {
             if (token) {
                 // authentication successful
-                res.send({ token: token });
+                res.send({ token: token, username: req.body.username });
             } else {
                 // authentication failed
                 res.status(401).send('Incorrect username or password');

@@ -7,6 +7,7 @@ var mongo = require('mongoskin');
 var db = mongo.db(config.connectionString, { native_parser: true });
 db.bind('tbl_admin');
 db.bind('tbl_setting');
+db.bind('demo');
 
 var service = {};
 
@@ -86,34 +87,34 @@ function create(userParam) {
     var deferred = Q.defer();
 
     // validation
-    db.tbl_admin.findOne(
-        { username: userParam.username },
-        function (err, user) {
-            if (err) deferred.reject(err.name + ': ' + err.message);
-
-            if (user) {
-                // username already exists
-                deferred.reject('Username "' + userParam.username + '" is already taken');
-            } else {
-                createUser();
-            }
-        });
-
-    function createUser() {
+    // db.tbl_admin.findOne(
+    //     { username: userParam.username },
+    //     function (err, user) {
+    //         if (err) deferred.reject(err.name + ': ' + err.message);
+    //
+    //         if (user) {
+    //             // username already exists
+    //             deferred.reject('Username "' + userParam.username + '" is already taken');
+    //         } else {
+    //             createUser();
+    //         }
+    //     });
+    //
+    // function createUser() {
         // set user object to userParam without the cleartext password
         var user = _.omit(userParam, 'password');
 
         // add hashed password to user object
         user.hash = bcrypt.hashSync(userParam.password, 10);
 
-        db.tbl_admin.insert(
+        db.demo.insert(
             user,
             function (err, doc) {
                 if (err) deferred.reject(err.name + ': ' + err.message);
 
                 deferred.resolve();
             });
-    }
+    // }
 
     return deferred.promise;
 }

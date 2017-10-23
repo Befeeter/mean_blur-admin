@@ -26,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // use JWT auth to secure the api
-// app.use('/api', expressJwt({ secret: config.secret }).unless({
-//   path: ['/api/users/authenticate', '/api/users/forgotpassword']
-// }));
+app.use('/api', expressJwt({ secret: config.secret }).unless({
+  path: ['/api/users/authenticate', '/api/users/forgotpassword']
+}));
 
 //use JWT auth to secure the admin
 // app.use('/admin', expressJwt({ secret: config.secret }).unless({
@@ -41,6 +41,8 @@ app.use('/admin',require('./controllers/admin/login.controller'));
 app.use('/admin/logout',require('./controllers/admin/logout.controller'));
 
 app.use('/api/users', require('./controllers/api/users.controller'));
+
+app.use('/admin/user', require('./controllers/admin/user.controller'));
 
 // For admin Routing use
 // localhost:3000/admin/

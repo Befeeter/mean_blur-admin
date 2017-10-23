@@ -50,6 +50,8 @@ router.post('/', function (req, res) {
 
         // save JWT token in the session to make it available to the angular app
         req.session = body.token;
+				req.userId = body.username;
+				// console.log(req.session);return false;
 
         res.sendFile(req.app.get("admin_path")+"index.html");
     });

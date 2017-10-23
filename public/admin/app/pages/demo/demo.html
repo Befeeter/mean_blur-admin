@@ -1,23 +1,27 @@
 <div ba-panel ba-panel-class="profile-page" >
   <div class="panel-content">
-    <div class="progress-info">Your profile is {{percentage}}% Complete</div>
+
+    <!-- <div class="progress-info">Your profile is {{percentage}}% Complete</div>
     <div class="progress">
-      <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar"
-      aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%">
-    </div>
+    <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar"
+    aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%">
   </div>
+</div> -->
 
-  <h3 class="with-line">General Information</h3>
+<h3 class="with-line">General Information</h3>
 
-  <!-- <div class="row">
-  <div class="col-md-6">
-  <div class="form-group row clearfix">
-  <label for="inputFirstName" class="col-sm-3 control-label">Picture</label>
+<div ng-if="data.flag" class="alert bg-success closeable" role="alert"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+  <strong>Well done!</strong> You successfully saved the data.
+</div>
+<!-- <div class="row">
+<div class="col-md-6">
+<div class="form-group row clearfix">
+<label for="inputFirstName" class="col-sm-3 control-label">Picture</label>
 
-  <div class="col-sm-9">
-  <div class="userpic">
-  <div class="userpic-wrapper">
-  <img ng-src="{{ picture }}" ng-click="uploadPicture()">
+<div class="col-sm-9">
+<div class="userpic">
+<div class="userpic-wrapper">
+<img ng-src="{{ picture }}" ng-click="uploadPicture()">
 </div>
 <i class="ion-ios-close-outline" ng-click="removePicture()" ng-if="!noPicture"></i>
 <a href class="change-userpic" ng-click="uploadPicture()">Change Profile Picture</a>
@@ -28,6 +32,8 @@
 </div>
 <div class="col-md-6"></div>
 </div> -->
+
+
 <form name="profile" method="post" ng-submit="submit()">
   <div class="row">
     <div class="col-md-6">
@@ -35,7 +41,7 @@
         <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
 
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputFirstName" placeholder=""  ng-model="data.inputFirstName">
+          <input type="text" class="form-control" id="inputFirstName" placeholder=""  ng-model="data.inputFirstName" required>
         </div>
       </div>
       <div class="form-group row clearfix">
