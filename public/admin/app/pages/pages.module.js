@@ -4,7 +4,7 @@
  */
 (function () {
   'use strict';
-  console.log("Inside pages controller");
+
   angular.module('BlurAdmin.pages', [
     'ui.router',
 
@@ -16,6 +16,7 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
+    'BlurAdmin.pages.demo',
   ])
       .config(routeConfig);
 
@@ -37,7 +38,10 @@
       }, {
         title: 'User Profile',
         stateRef: 'profile'
-      }, {
+      },{
+        title: 'Demo',
+        stateRef: 'demo'
+      },{
         title: '404 Page',
         fixedHref: '404.html',
         blank: true

@@ -5,10 +5,8 @@ var request = require('request');
 var config = require('config.json');
 
 router.get('/', function (req, res) {
-
-    console.log("Inside get controller");
     // log user out
-    //delete req.session.token;	
+    //delete req.session.token;
 
 	//check if session is exists
 	if(req.session){
@@ -18,7 +16,7 @@ router.get('/', function (req, res) {
   //       res.redirect(returnUrl);
   res.sendFile(req.app.get("admin_path")+"index.html");
 }
-// 
+//
     // move success message into local variable so it only appears once (single read)
     // var viewData = { success: req.session.success};
     // delete req.session.success;
@@ -26,27 +24,27 @@ router.get('/', function (req, res) {
 
     res.render(req.app.get("admin_path")+"auth");
 
-    
+
     // res.redirect('auth', viewData);
 
-    
+
 
 
 });
 
 router.post('/', function (req, res) {
 
-    // authenticate using api to maintain clean separation between layers    
+    // authenticate using api to maintain clean separation between layers
     request.post({
         url: config.apiUrl_local + '/users/authenticate',
         form: req.body,
         json: true
-    }, function (error, response, body) {		
-        if (error) {			
+    }, function (error, response, body) {
+        if (error) {
             res.render(req.app.get("admin_path")+"auth", { error: 'An error occurred !' });
         }
 
-        if (!body.token) {	
+        if (!body.token) {
             res.render(req.app.get("admin_path")+"auth", { error: body, username: req.body.username });
         }
 

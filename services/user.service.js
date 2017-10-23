@@ -32,7 +32,7 @@ function authenticate(username, password) {
         if (err){
             deferred.reject(err.name + ': ' + err.message);
         }
-       
+
        if (user && bcrypt.compareSync(password, user.hash)) {
             // authentication successful
             deferred.resolve(jwt.sign({ sub: user._id }, config.secret));
@@ -46,6 +46,7 @@ function authenticate(username, password) {
 }
 
 function getById(_id) {
+    console.log("Inside user service");
     var deferred = Q.defer();
 
     db.tbl_admin.findById(_id, function (err, user) {
@@ -173,7 +174,7 @@ function update(_id, userParam, file) {
         if (userParam.password) {
             set.hash = bcrypt.hashSync(userParam.password, 10);
         }
-        
+
         if(typeof file !='undefined' || file != null){
         	if(typeof file != 'undefined') {
               if(file.filename){
@@ -187,8 +188,8 @@ function update(_id, userParam, file) {
             set.profile_image = null;
         }
     }
-    else{ 
-     set.profile_image = null;     	   
+    else{
+     set.profile_image = null;
  }
 
  db.tbl_admin.update(
@@ -220,8 +221,8 @@ function updateSetting(adminId, userParam) {
                 deferred.resolve();
             }
             );
-        return deferred.promise;	
-    }	
+        return deferred.promise;
+    }
 
 
     function _delete(_id) {
@@ -249,7 +250,7 @@ function setPassword(_id, userParam) {
 
         if(!userParam.oldPassword || !userParam.password){
            deferred.reject('Please fill the form fields');
-       }        
+       }
        else if (!(user && bcrypt.compareSync(userParam.oldPassword, user.hash))){
            deferred.reject('Incorrect old password entered!');
        }
@@ -257,16 +258,16 @@ function setPassword(_id, userParam) {
            deferred.reject('Confirm password mismatched!');
 
        } else {
-        changePassword();            
+        changePassword();
     }
 });
 
     function changePassword() {
-        // update password if it was entered                
-        var set = {            
+        // update password if it was entered
+        var set = {
             hash: bcrypt.hashSync(userParam.password, 10),
         };
-        
+
         db.tbl_admin.update(
             { _id: mongo.helper.toObjectID(_id) },
             { $set: set },

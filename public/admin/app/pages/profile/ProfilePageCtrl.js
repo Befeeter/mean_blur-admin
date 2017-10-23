@@ -80,7 +80,15 @@
       fileReader.readAsDataUrl($scope.file, $scope)
           .then(function (result) {
             $scope.picture = result;
+          // console.log("Outside onloadend");
           });
+
+          // fileReader.onloadend = function (e){
+          //   $scope.picture = fileReader.result;
+          //   console.log("Inside Loadend");
+          //   console.log(fileReader.result);
+          //
+          // }
     };
 
     $scope.switches = [true, true, false, true, true, false];
