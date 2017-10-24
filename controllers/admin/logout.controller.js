@@ -7,7 +7,7 @@ var config = require('config.json');
 router.get('/', function (req, res) {
     // log user out
     if(req.session)
-        delete req.session;	
+        delete req.session;
 
     res.redirect("/admin/");
 

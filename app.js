@@ -35,7 +35,6 @@ app.use('/api', expressJwt({ secret: config.secret }).unless({
 //   path: ['/admin']
 // }));
 
-
 // Routing for admin-
 app.use('/admin',require('./controllers/admin/login.controller'));
 app.use('/admin/logout',require('./controllers/admin/logout.controller'));
@@ -43,6 +42,7 @@ app.use('/admin/logout',require('./controllers/admin/logout.controller'));
 app.use('/api/users', require('./controllers/api/users.controller'));
 
 app.use('/admin/user', require('./controllers/admin/user.controller'));
+app.use('/admin/bus', require('./controllers/admin/bus.controller'));
 
 // For admin Routing use
 // localhost:3000/admin/
@@ -55,10 +55,12 @@ app.use('/admin/user', require('./controllers/admin/user.controller'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -72,7 +74,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000, function (){
-	console.log("Server Up at port 3000");
+  console.log("Server Up at port 3000");
 })
 
 module.exports = app;

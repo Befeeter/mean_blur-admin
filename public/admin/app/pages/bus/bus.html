@@ -1,0 +1,121 @@
+<div ba-panel ba-panel-class="profile-page" >
+  <div class="panel-content">
+
+    <h3 class="with-line">General Information</h3>
+
+    <div ng-if="data.flag" class="alert bg-success closeable" role="alert"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <strong>Well done!</strong> You successfully saved the data.
+    </div>
+
+    <div ng-if="data.isValid"  class="alert bg-danger closeable" role="alert"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <strong>Oh snap!</strong> Change a few things up and try submitting again.
+    </div>
+
+    <form name="bus" method="post" ng-submit="submit()">
+      <div class="row">
+        <div class="col-md-1">
+          <div class="kameleon-icon"><img ng-src="assets/img/theme/icon/kameleon/Bus.svg" src="assets/img/theme/icon/kameleon/Bus.svg"></div>
+          <!-- <div class="form-group row clearfix">
+          <label for="inputFirstName" class="col-sm-3 control-label">Picture</label>
+
+          <div class="col-sm-9">
+          <div class="userpic">
+          <div class="userpic-wrapper">
+          <img ng-src="{{ data.picture }}" ng-click="uploadPicture()">
+        </div>
+        <i class="ion-ios-close-outline" ng-click="removePicture()" ng-if="!noPicture"></i>
+        <a href class="change-userpic" ng-click="uploadPicture()">Change Profile Picture</a>
+        <input type="file" ng-show="false" id="uploadFile" ng-file-select="onFileSelect($files)">
+      </div>
+    </div>
+  </div> -->
+</div>
+<div class="col-md-6"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group row clearfix">
+      <label for="vehicle_name" class="col-sm-3 control-label">Vehicle Name <span style="color:red">*</span> </label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="vehicle_name" placeholder=""  ng-model="data.vehicle_name" required>
+      </div>
+    </div>
+    <div class="form-group row clearfix">
+      <label for="seat_no" class="col-sm-3 control-label" >Seat No <span style="color:red">*</span></label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="seat_no" placeholder="" ng-model="data.seat_no" required>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group row clearfix">
+      <label class="col-sm-3 control-label">Type <span style="color:red">*</span></label>
+
+      <div class="col-sm-9">
+        <select class="form-control" selectpicker ng-model="data.type" required>
+          <option>Sleeper</option>
+          <option>A/C Sleeper</option>
+          <option>Semi Sleeper</option>
+          <option>A/C Semi Sleeper</option>
+          <option>Normal</option>
+          <option>A/C Normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row clearfix">
+      <label for="description" class="col-sm-3 control-label">Description <span style="color:red">*</span></label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="description" placeholder=""  ng-model="data.description" required>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="with-line">Fare Information</h3>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group row clearfix">
+      <label for="min_fare" class="col-sm-3 control-label">Minimum Fare</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="min_fare" placeholder="" ng-model="data.min_fare">
+      </div>
+    </div>
+    <div class="form-group row clearfix">
+      <label for="base_fare" class="col-sm-3 control-label">Base Fare</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="base_fare" placeholder="" ng-model="data.base_fare">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group row clearfix">
+      <label class="col-sm-3 control-label">Price Per Distance(KM)</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="price_per_distance" placeholder="" ng-model="data.price_per_distance">
+      </div>
+    </div>
+    <div class="form-group row clearfix">
+      <label for="price_per_minute" class="col-sm-3 control-label">Price Per Minute</label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="price_per_minute" placeholder="" ng-model="data.price_per_minute">
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary btn-with-icon save-profile">
+  <i class="ion-android-checkmark-circle"></i>Update
+</button>
+</div>
+</form>
+</div>

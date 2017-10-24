@@ -17,6 +17,7 @@
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
     'BlurAdmin.pages.demo',
+    'BlurAdmin.pages.bus',
   ])
       .config(routeConfig);
 
@@ -47,6 +48,16 @@
         blank: true
       }]
     });
+
+    baSidebarServiceProvider.addStaticItem({
+      title: 'Vehicles',
+      icon: 'ion-model-s',
+      subMenu: [{
+        title: 'Bus',
+        stateRef: 'bus'
+      }]
+    });
+
     baSidebarServiceProvider.addStaticItem({
       title: 'Menu Level 1',
       icon: 'ion-ios-more',
