@@ -53,7 +53,7 @@
       title: 'Vehicles',
       icon: 'ion-model-s',
       subMenu: [{
-        title: 'Bus',
+        title: 'Add Bus',
         stateRef: 'bus'
       }]
     });

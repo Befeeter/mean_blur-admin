@@ -16,7 +16,13 @@
       title: 'Bus',
       templateUrl: 'app/pages/bus/bus.html',
       controller: 'busCtrl',
+    })
+    .state('bus-list',{
+      url: '/bus-list',
+      title: 'Bus List',
+      templateUrl: 'app/pages/bus/busList.html',
+      controller: 'busListCtrl',
     });
-  }
+}
 
 })();

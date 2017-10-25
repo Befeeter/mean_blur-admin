@@ -4,7 +4,7 @@
  */
 (function () {
   'use strict';
-console.log("Inside theme controller");
+
   angular.module('BlurAdmin.theme', [
       'toastr',
       'chart.js',

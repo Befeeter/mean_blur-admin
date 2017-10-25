@@ -10,6 +10,7 @@ db.bind('bus');
 var service = {};
 
 service.create = create;
+service.getAll = getAll;
 
 module.exports = service;
 
@@ -31,5 +32,21 @@ function create(userParam) {
     });
 
 
+    return deferred.promise;
+  }
+
+  function getAll(userParam){
+    var deferred = Q.defer();
+    db.bus.find().toArray(function(err, user) {
+      if (err) deferred.reject(err.name + ': ' + err.message);
+      if (user) {
+        // data found
+        deferred.resolve(_.omit(user, 'hash'));
+        // deferred.resolve(user);
+      } else {
+        // data not found
+        deferred.resolve();
+      }
+    });
     return deferred.promise;
   }
