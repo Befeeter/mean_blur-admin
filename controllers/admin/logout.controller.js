@@ -5,11 +5,13 @@ var request = require('request');
 var config = require('config.json');
 
 router.get('/', function (req, res) {
-    // log user out
-    if(req.session)
-        delete req.session;
+  // log user out
+  if(req.session.token){
+    delete req.session.token;
+    delete req.session.userId;
+  }
 
-    res.redirect("/admin/");
+  res.redirect("/admin/");
 
 
 });

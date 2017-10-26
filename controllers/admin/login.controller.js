@@ -4,13 +4,14 @@ var router = express.Router();
 var request = require('request');
 var config = require('config.json');
 
+
 router.get('/', function (req, res) {
 	// log user out
 	//delete req.session.token;
-	console.log("Inside Login Controller");
+	// console.log("Inside Login Controller");
 	// res.redirect("/admin/");
 	//check if session is exists
-	if(req.session){
+	if(req.session.token){
 		// redirect to returnUrl
 		// var returnUrl = req.query.returnUrl && decodeURIComponent(req.query.returnUrl) || '/dashboard';
 		//       res.sendfile('angular/release/auth.html');
@@ -50,10 +51,10 @@ router.post('/', function (req, res) {
 		}
 
 		// save JWT token in the session to make it available to the angular app
-		req.session = body.token;
-		req.userId = body.username;
-		// console.log(req.session);return false;
+		req.session.token = body.token;
+		req.session.userId = body.username;
 
+	
 		res.sendFile(req.app.get("admin_path")+"index.html");
 	});
 });
