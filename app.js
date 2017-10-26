@@ -65,14 +65,6 @@ app.use('/api/users' , require('./controllers/api/users.controller'));
 app.use('/admin/user', custom_middleware , require('./controllers/admin/user.controller'));
 app.use('/admin/bus', custom_middleware,  require('./controllers/admin/bus.controller'));
 
-// For admin Routing use
-// localhost:3000/admin/
-
-// app.use('/', require('./controllers/login.controller'));
-// app.use('/reg', require('./controllers/reg.controller'));
-// app.use('/users', require('./routes/users'));
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -83,7 +75,7 @@ app.use(function(req, res, next) {
 
 
 
-// error handler
+// error handler middleware
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -91,11 +83,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render(req.app.get("admin_path")+"error",  {title:'Opps !!! Something went wrong.', error: err});
 });
 
 app.listen(3000, function (){
   console.log("Server Up at port 3000");
-})
+});
 
 module.exports = app;
