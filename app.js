@@ -44,7 +44,7 @@ function app_level_middleware(req, res, next){
 app.use(app_level_middleware);
 
 
-// Making custom function for middleware for specific function
+// Making custom function for middleware for specific route
 function custom_middleware(req, res, next){
   console.log("Inside Custom Middleware");
   console.log("session "+ req.session.token);
