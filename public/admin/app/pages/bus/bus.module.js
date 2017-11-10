@@ -22,6 +22,12 @@
       title: 'Bus List',
       templateUrl: 'app/pages/bus/busList.html',
       controller: 'busListCtrl',
+    })
+    .state('bus-edit',{
+      url:'/bus-edit/{id}',
+      title: "Bus Edit",
+      templateUrl: 'app/pages/bus/busEdit.html',
+      controller: 'busEditCtrl',
     });
 }
 

@@ -6,6 +6,7 @@ var busService = require('services/bus.service');
 // routes
 router.post('/', saveData);
 router.get('/getAll', getAll);
+router.post('/getById', getById);
 
 module.exports = router;
 
@@ -31,4 +32,21 @@ function getAll(req, res, next){
   .catch(function (err) {
     res.status(400).send(err);
   });
+}
+
+function getById(req, res, next){
+  console.log("inside node controller");
+  console.log(req.bus_id);
+  return false;
+  // busService.getAll()
+  // .then(function (user) {
+  //   if (user) {
+  //     res.send(user);
+  //   } else {
+  //     res.sendStatus(404);
+  //   }
+  // })
+  // .catch(function (err) {
+  //   res.status(400).send(err);
+  // });
 }

@@ -1,33 +1,37 @@
 <div class="widgets">
 
   <div class="row">
+
     <div class="horizontal-scroll">
-      <table class="table table-hover" st-table="smartTableData">
+      <table class="table table-hover">
         <thead>
           <tr class="black-muted-bg">
-            <th st-sort="vehicle_name">Name</th>
-            <th st-sort="type">Type</th>
-            <th st-sort="description">Description</th>
-            <th st-sort="seat_no">Seat No</th>
-            <th st-sort="price_per_minute">Price/Min</th>
-            <th st-sort="price_per_distance">Price/Distance</th>
-            <th st-sort="min_fare">Min Fare</th>
-            <th st-sort="base_fare">BaseFare</th>
+            <th >Name</th>
+            <th >Type</th>
+            <th >Description</th>
+            <th >Seat No</th>
+            <th >Price/Min</th>
+            <th >Price/Distance</th>
+            <th >Min Fare</th>
+            <th >BaseFare</th>
+            <th >Action</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="item in smartTableData" class="no-top-border">
-            <td>{{item.vehicle_name | lowercase}}</td>
-            <td>{{item.type | lowercase }}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.seat_no | number}}</td>
-            <td>{{item.price_per_minute | currency}}</td>
-            <td>{{item.price_per_distance | currency}}</td>
-            <td>{{item.min_fare | currency}}</td>
-            <td>{{item.base_fare | currency}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+            <td><span >{{item.vehicle_name | lowercase}}</span></td>
+            <td><span >{{item.type | lowercase }}</span></td>
+            <td><span >{{item.description}}</span></td>
+            <td><span >{{item.seat_no | number}}</span></td>
+            <td><span >{{item.price_per_minute | currency}}</span></td>
+            <td><span >{{item.price_per_distance | currency}}</span></td>
+            <td><span >{{item.min_fare | currency}}</td>
+              <td><span >{{item.base_fare | currency}}</td>
+                <td><span  class="btn-primary"><a  href="#/bus-edit/{{item._id}}">Edit</a></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>

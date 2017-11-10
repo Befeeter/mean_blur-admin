@@ -30,6 +30,15 @@
       console.log("Failed...........");
     });
 
+  //   // Handle Post Data
+  //   $http.post('/', function (req, res){
+  //     console.log("Inside Post");
+  //     console.log(req);
+  // return false;
+  //   });
+
+
+
 
     $scope.removeUser = function(index) {
       $scope.users.splice(index, 1);
@@ -46,5 +55,7 @@
     };
 
   }
+
+
 
 })();
