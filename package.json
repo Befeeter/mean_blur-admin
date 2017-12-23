@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular-chart.js": "^1.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
@@ -14,7 +15,9 @@
     "email-templates": "^3.0.8",
     "express": "~4.15.5",
     "express-jwt": "^5.3.0",
+    "express-session": "^1.15.6",
     "lodash": "^4.17.4",
+    "mongo-sequential": "0.0.2",
     "mongodb": "^2.2.31",
     "mongoskin": "^2.1.0",
     "morgan": "~1.9.0",
