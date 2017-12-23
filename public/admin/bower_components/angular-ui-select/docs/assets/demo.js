@@ -201,7 +201,7 @@ app.controller('DemoCtrl', function ($scope, $http, $timeout, $interval) {
   vm.refreshAddresses = function(address) {
     var params = {address: address, sensor: false};
     return $http.get(
-      'http://maps.googleapis.com/maps/api/geocode/json',
+      'https://maps.googleapis.com/maps/api/geocode/json',
       {params: params}
     ).then(function(response) {
       vm.addresses = response.data.results;

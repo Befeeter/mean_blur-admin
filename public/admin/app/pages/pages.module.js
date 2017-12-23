@@ -55,6 +55,9 @@
       subMenu: [{
         title: 'Add Bus',
         stateRef: 'bus'
+      },{
+        title: 'Bus List',
+        stateRef: 'bus-list'
       }]
     });
 
