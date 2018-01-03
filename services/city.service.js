@@ -5,7 +5,7 @@ var bcrypt = require('bcryptjs');
 var Q = require('q');
 var mongo = require('mongoskin');
 var db = mongo.db(config.connectionString, { native_parser: true });
-db.bind('bus');
+db.bind('city');
 
 var service = {};
 
@@ -25,7 +25,7 @@ function create(userParam) {
   // // add hashed password to user object
   // user.hash = bcrypt.hashSync(userParam.password, 10);
 
-  db.bus.insert(
+  db.city.insert(
     userParam,
     function (err, doc) {
       if (err) deferred.reject(err.name + ': ' + err.message);
@@ -103,7 +103,7 @@ function update(_id,userParam) {
 
   function getAll(userParam){
     var deferred = Q.defer();
-    db.bus.find().toArray(function(err, user) {
+    db.city.find().toArray(function(err, user) {
       if (err) deferred.reject(err.name + ': ' + err.message);
       if (user) {
         // data found

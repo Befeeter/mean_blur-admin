@@ -18,6 +18,7 @@
     'BlurAdmin.pages.profile',
     'BlurAdmin.pages.demo',
     'BlurAdmin.pages.bus',
+    'BlurAdmin.pages.city',
   ])
       .config(routeConfig);
 
@@ -58,6 +59,18 @@
       },{
         title: 'Bus List',
         stateRef: 'bus-list'
+      }]
+    });
+
+    baSidebarServiceProvider.addStaticItem({
+      title: 'City',
+      icon: 'ion-model-s',
+      subMenu: [{
+        title: 'Add City',
+        stateRef: 'city'
+      },{
+        title: 'City List',
+        stateRef: 'city-list'
       }]
     });
 

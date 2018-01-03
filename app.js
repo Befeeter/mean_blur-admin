@@ -64,6 +64,7 @@ app.use('/api/users' , require('./controllers/api/users.controller'));
 
 app.use('/admin/user', custom_middleware , require('./controllers/admin/user.controller'));
 app.use('/admin/bus', custom_middleware,  require('./controllers/admin/bus.controller'));
+app.use('/admin/city', custom_middleware,  require('./controllers/admin/city.controller'));
 
 
 // catch 404 and forward to error handler

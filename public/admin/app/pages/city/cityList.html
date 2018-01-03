@@ -1,0 +1,27 @@
+<div class="widgets">
+
+  <div class="row">
+
+    <div class="horizontal-scroll">
+      <table class="table table-hover">
+        <thead>
+          <tr class="black-muted-bg">
+            <th >Name</th>
+            <th >State</th>
+            <th >Status</th>
+            <th >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in smartTableData" class="no-top-border">
+            <td><span >{{item.city_name | lowercase}}</span></td>
+            <td><span >{{item.state | lowercase }}</span></td>
+            <td><span >{{item.status}}</span></td>
+            <td><span  class="btn btn-warning btn-sm" style="margin:0px 0px 3px 0px"><a  href="#/city-delete/{{item._id}}">Delete</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

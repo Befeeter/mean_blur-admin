@@ -1,0 +1,56 @@
+<div ba-panel ba-panel-class="profile-page" >
+  <div class="panel-content">
+
+    <h3 class="with-line">General Information</h3>
+
+    <div ng-if="data.flag" class="alert bg-success closeable" role="alert"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <strong>Well done!</strong> You successfully saved the data.
+    </div>
+
+    <div ng-if="data.isValid"  class="alert bg-danger closeable" role="alert"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <strong>Oh snap!</strong> Change a few things up and try submitting again.
+    </div>
+
+    <form name="city" method="post" ng-submit="submit()">
+      <div class="row">
+<div class="col-md-6"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group row clearfix">
+      <label for="city_name" class="col-sm-3 control-label">Name <span style="color:red">*</span> </label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="city_name" placeholder=""  ng-model="data.city_name" required>
+      </div>
+    </div>
+    <div class="form-group row clearfix">
+      <label for="state" class="col-sm-3 control-label" >State <span style="color:red">*</span></label>
+
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="state" placeholder="" ng-model="data.state" required>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group row clearfix">
+      <label class="col-sm-3 control-label">Type <span style="color:red">*</span></label>
+
+      <div class="col-sm-9">
+        <select class="form-control" selectpicker ng-model="data.status" required>
+          <option value="1">Active</option>
+          <option value = "0">Inactive</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button type="submit" class="btn btn-primary btn-with-icon save-profile">
+  <i class="ion-android-checkmark-circle"></i>Add
+</button>
+</div>
+</form>
+</div>
