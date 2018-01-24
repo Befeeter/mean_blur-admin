@@ -36,7 +36,8 @@ function authenticate(username, password) {
 
        if (user && bcrypt.compareSync(password, user.hash)) {
             // authentication successful
-            deferred.resolve(jwt.sign({ sub: user._id }, config.secret));
+//            deferred.resolve(jwt.sign({ sub: user._id }, config.secret));
+            deferred.resolve({token:jwt.sign({ sub: user._id }, config.secret),user:user});
         } else {
             // authentication failed
             deferred.resolve();
@@ -46,8 +47,26 @@ function authenticate(username, password) {
     return deferred.promise;
 }
 
+//function authenticate(username, password) {
+//    var deferred = Q.defer();
+//
+//    db.tbl_customers.findOne({ $or:[{username: username },{email: username}], status: parseInt(1)}, function (err, customer) {
+//        if (err) deferred.reject(err);
+//       
+//        if (customer && bcrypt.compareSync(password, customer.password)) {
+//            // authentication successful
+//            deferred.resolve({token:jwt.sign({ sub: customer._id ,userName: customer.username, hash: customer.hash}, config.secret),customerId:customer.customerId});
+//        } else {
+//            // authentication failed
+//            deferred.resolve();
+//        }
+//    });
+//
+//    return deferred.promise;
+//}
+
 function getById(_id) {
-    console.log("Inside user service");
+    
     var deferred = Q.defer();
 
     db.tbl_admin.findById(_id, function (err, user) {

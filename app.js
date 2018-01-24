@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressJwt = require('express-jwt');
 var session = require('express-session');
+var roles = require('express-roles');
 
 var config = require('config.json');
 
@@ -49,6 +50,9 @@ function custom_middleware(req, res, next){
   console.log("Inside Custom Middleware");
   console.log("session "+ req.session.token);
   if(req.session.token){
+      console.log("Start ...........................");
+      console.log(req);
+      console.log("End .............................");
     next();
   }else{
     res.redirect("/admin/");
@@ -66,6 +70,7 @@ app.use('/admin/user', custom_middleware , require('./controllers/admin/user.con
 app.use('/admin/bus', custom_middleware,  require('./controllers/admin/bus.controller'));
 app.use('/admin/city', custom_middleware,  require('./controllers/admin/city.controller'));
 
+app.use(roles('administrator'), require('./controllers/api/users.controller'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

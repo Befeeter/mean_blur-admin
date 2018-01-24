@@ -39,10 +39,10 @@ module.exports = router;
 function authenticateUser(req, res) {
 
     userService.authenticate(req.body.username, req.body.password)
-        .then(function (token) {
+        .then(function (result) {
             if (token) {
                 // authentication successful
-                res.send({ token: token, username: req.body.username });
+                res.send({ token: result.token, username: req.body.username, role:result.user.roles });
             } else {
                 // authentication failed
                 res.status(401).send('Incorrect username or password');
