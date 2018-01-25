@@ -42,7 +42,7 @@ router.post('/', function (req, res) {
 		form: req.body,
 		json: true
 	}, function (error, response, body) {
-                console.log(response);return false;
+                
 		if (error) {
 			res.render(req.app.get("admin_path")+"auth", { error: 'An error occurred !' });
 		}
@@ -50,13 +50,21 @@ router.post('/', function (req, res) {
 		if (!body.token) {
 			res.render(req.app.get("admin_path")+"auth", { error: body, username: req.body.username });
 		}
-
+                
 		// save JWT token in the session to make it available to the angular app
+                
 		req.session.token = body.token;
 		req.session.userId = body.username;
-                req.user.roles = body.roles;
-
-	
+		req.session.roles = body.role;
+                
+                req.user = {};
+                req.role = {};
+                req.user.roles = body.role;
+                req.role.name = body.role;
+                
+//                console.log(req.role.name);
+//                return false;
+           
 		res.sendFile(req.app.get("admin_path")+"index.html");
 	});
 });

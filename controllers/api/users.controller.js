@@ -40,7 +40,7 @@ function authenticateUser(req, res) {
 
     userService.authenticate(req.body.username, req.body.password)
         .then(function (result) {
-            if (token) {
+            if (result) {
                 // authentication successful
                 res.send({ token: result.token, username: req.body.username, role:result.user.roles });
             } else {
