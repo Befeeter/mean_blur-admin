@@ -1,7 +1,7 @@
 {
-	"connectionString": "mongodb://bred:bred@ds151208.mlab.com:51208/bred-mongodb",
-	"apiUrl": "http://onitsway.onsisdev.info:3000/api",
-	"apiUrl_local": "http://localhost:3000/api",
+	"connectionString": "mongodb://192.168.3.2:27017/champions_connect",
+	"apiUrl_backup": "http://champions_connect.onsisdev.info:3000/api",
+	"apiUrl": "http://localhost:3000/api",
     "secret": "WebSuperAdmin",
 	"encodeToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZWVyZW5kcmEiOiJkZXZlbmRyYSIsImlhdCI6MTQ3Mzg1MDYwNH0.YoeHbbF_GQdj1bvMwHzJU0R0KXyij11JfhL2HgyMEyg",
 	"androidServerKey":"AIzaSyDU7sSSDdJyQxzTcOQHGPQx40_MS1LQdGU",
@@ -9,7 +9,7 @@
 	"i18nconfig":{
 		  "locales": ["en", "fr"],
 		  "directory": "/Data/onsis/projects/onitsway.onsisdev.info/code/websuperadmin/locales",
-		  "extension": ".json",  
+		  "extension": ".json",
 		  "prefix": "websuperadmin-"
 	},
 	"twilio":{
@@ -28,31 +28,32 @@
 			}
 		},
 		"sandbox":{
-			"bundle_identifier":"com.CustomAppsTeam.CustomAppsTeam",			
+			"bundle_identifier":"com.CustomAppsTeam.CustomAppsTeam",
 			"options":{
 				"cert": "/Data/onsis/projects/onitsway.onsisdev.info/code/public/uploads/sandbox_onitsway.pem",
 				"key": "/Data/onsis/projects/onitsway.onsisdev.info/code/public/uploads/sandbox_onitsway.pem",
 				"production": false
 			}
-		}		
+		}
 	},
 	"smtpConfig" : {
 		"host": "smtp.gmail.com",
 		"port": 465,
-		"secure": true,  
+		"secure": true,
 		"auth": {
 			"user": "appypiedemo@gmail.com",
 			"pass": "Appypie@123"
 		}
 	},
 	"stripeConfig": {
-		"clientId": "ca_BFeX93hVMAtGvUKLw0q5EnKW59QyVgMA", 			
+		"clientId": "ca_BFeX93hVMAtGvUKLw0q5EnKW59QyVgMA",
 		"secretKey": "sk_test_CqH6ZPKiy6dx1m2ofkGdtDnC",
 		"redirectUri": "http://onitsway.onsisdev.info:5180/driver/#/"
 	},
 	"media_path":"/Data/onsis/projects/onitsway.onsisdev.info/code/public/uploads/",
-	"fromNameEmail":"OnItsWay <no-reply@onsinteractive.com>",
+	"fromNameEmail":"Champions Connect <no-reply@champions_connect.com>",
 	"logo":"http://onitsway.onsisdev.info/public/small-logo.png",
 	"site_url":"http://onitsway.onsisdev.info/",
-	"email_template_path": "/Data/onsis/projects/onitsway.onsisdev.info/code/emailLayout/"
+	"email_template_path_bck": "/Data/onsis/projects/onitsway.onsisdev.info/code/emailLayout/",
+	"email_template_path": "E:/express/views/emailLayout"
 }

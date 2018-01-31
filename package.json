@@ -12,7 +12,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "^2.5.7",
-    "email-templates": "^3.0.8",
+    "email-templates": "^2.7.1",
     "express": "~4.15.5",
     "express-jwt": "^5.3.0",
     "express-session": "^1.15.6",

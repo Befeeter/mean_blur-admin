@@ -52,7 +52,7 @@ function authenticate(username, password) {
 //
 //    db.tbl_customers.findOne({ $or:[{username: username },{email: username}], status: parseInt(1)}, function (err, customer) {
 //        if (err) deferred.reject(err);
-//       
+//
 //        if (customer && bcrypt.compareSync(password, customer.password)) {
 //            // authentication successful
 //            deferred.resolve({token:jwt.sign({ sub: customer._id ,userName: customer.username, hash: customer.hash}, config.secret),customerId:customer.customerId});
@@ -66,7 +66,7 @@ function authenticate(username, password) {
 //}
 
 function getById(_id) {
-    
+
     var deferred = Q.defer();
 
     db.tbl_admin.findById(_id, function (err, user) {

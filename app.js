@@ -17,6 +17,7 @@ var app = express();
 app.set('view engine', 'html');
 app.set('view engine', 'ejs');
 app.set('admin_path', path.join(__dirname, 'views', 'admin' + path.sep));
+app.set('email_layout_path', path.join(__dirname, 'views', 'emailLayout' + path.sep));
 
 // Initialize Session
 app.use(session({secret: config.secret, resave: false, saveUninitialized: true}));
@@ -50,7 +51,6 @@ function custom_middleware(req, res, next) {
     console.log("Inside Custom Middleware");
     console.log("session " + req.session.token);
     if (req.session.token) {
-
         next();
     } else {
         res.redirect("/admin/");
@@ -66,10 +66,10 @@ var user = new ConnectRoles({
         res.status(403);
         if (~accept.indexOf('html')) {
 //            res.render('access-denied', {action: action});
-            res.render(req.app.get("admin_path")+"error",  {title:'Access Denied - You don\'t have permission to: ', error: action});
+            res.render(req.app.get("admin_path") + "error", {title: 'Access Denied - You don\'t have permission to: ', error: action});
         } else {
             res.send('Access Denied - You don\'t have permission to: ' + action);
-            
+
         }
     }
 });
@@ -114,7 +114,7 @@ app.use(user.middleware());
 
 user.use("access admin page", function (req) {
     if (req.session.roles === 'administrator') {
-        
+
         return true;
     }
 });
@@ -122,12 +122,14 @@ user.use("access admin page", function (req) {
 
 // Routing for admin-
 app.use('/admin', require('./controllers/admin/login.controller'));
-app.use('/admin/logout',user.can('access admin page'), require('./controllers/admin/logout.controller'));
+app.use('/admin/logout', user.can('access admin page'), require('./controllers/admin/logout.controller'));
+
+app.use('/admin/forgot', require('./controllers/admin/forgot.controller'));
 
 app.use('/api/users', require('./controllers/api/users.controller'));
 
 app.use('/admin/user', custom_middleware, require('./controllers/admin/user.controller'));
-app.use('/admin/bus',  require('./controllers/admin/bus.controller'));
+app.use('/admin/bus', require('./controllers/admin/bus.controller'));
 //app.use('/admin/bus', require('./controllers/admin/bus.controller'));
 app.use('/admin/city', custom_middleware, require('./controllers/admin/city.controller'));
 
@@ -149,11 +151,13 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render(req.app.get("admin_path")+"error",  {title:'Opps !!! Something went wrong.', error: err});
+    res.render(req.app.get("admin_path") + "error", {title: 'Opps !!! Something went wrong.', error: err});
 });
 
-app.listen(3000, function () {
-    console.log("Server Up at port 3000");
+process.env['TZ'] = 'Asia/Kolkata';
+
+var server = app.listen(3000, function () {
+    console.log('Server listening at http://' + server.address().address + ':' + server.address().port);
 });
 
 module.exports = app;
