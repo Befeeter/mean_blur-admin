@@ -10,44 +10,49 @@
 
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.ui',
-    'BlurAdmin.pages.components',
-    'BlurAdmin.pages.form',
+    // 'BlurAdmin.pages.components',
+    // 'BlurAdmin.pages.form',
     'BlurAdmin.pages.tables',
     // 'BlurAdmin.pages.charts',
-    'BlurAdmin.pages.maps',
+    // 'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
-    'BlurAdmin.pages.demo',
+    'BlurAdmin.pages.unauthorised',
     'BlurAdmin.pages.bus',
-    'BlurAdmin.pages.city',
+    // 'BlurAdmin.pages.city',
+    'BlurAdmin.pages.customer',
   ])
       .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/active-customer');
 
     baSidebarServiceProvider.addStaticItem({
       title: 'Pages',
       icon: 'ion-document',
-      subMenu: [{
-        title: 'Sign In',
-        fixedHref: 'auth.html',
-        blank: true
-      }, {
-        title: 'Sign Up',
-        fixedHref: 'reg.html',
-        blank: true
-      }, {
+      subMenu: [
+      // {
+      //   title: 'Sign In',
+      //   fixedHref: 'auth.html',
+      //   blank: true
+      // }, {
+      //   title: 'Sign Up',
+      //   fixedHref: 'reg.html',
+      //   blank: true
+      // },
+      {
         title: 'User Profile',
         stateRef: 'profile'
-      },{
-        title: 'Demo',
-        stateRef: 'demo'
-      },{
-        title: '404 Page',
-        fixedHref: '404.html',
-        blank: true
-      }]
+      }
+      // ,{
+      //   title: 'Demo',
+      //   stateRef: 'demo'
+      // },{
+      //   title: '404 Page',
+      //   fixedHref: '404.html',
+      //   blank: true
+      // }
+      ]
     });
 
     baSidebarServiceProvider.addStaticItem({
@@ -61,33 +66,47 @@
         stateRef: 'bus-list'
       }]
     });
+    //
+    // baSidebarServiceProvider.addStaticItem({
+    //   title: 'City',
+    //   icon: 'ion-model-s',
+    //   subMenu: [{
+    //     title: 'Add City',
+    //     stateRef: 'city'
+    //   },{
+    //     title: 'City List',
+    //     stateRef: 'city-list'
+    //   }]
+    // });
 
     baSidebarServiceProvider.addStaticItem({
-      title: 'City',
-      icon: 'ion-model-s',
+      title: 'Customer',
+      icon: 'ion-ios-people',
       subMenu: [{
-        title: 'Add City',
-        stateRef: 'city'
-      },{
-        title: 'City List',
-        stateRef: 'city-list'
-      }]
+        title: 'Active Customer',
+        stateRef: 'active-customer'
+      },
+      {
+        title: 'In-Active Customer',
+        stateRef: 'inactive-customer'
+      }
+      ]
     });
 
-    baSidebarServiceProvider.addStaticItem({
-      title: 'Menu Level 1',
-      icon: 'ion-ios-more',
-      subMenu: [{
-        title: 'Menu Level 1.1',
-        disabled: true
-      }, {
-        title: 'Menu Level 1.2',
-        subMenu: [{
-          title: 'Menu Level 1.2.1',
-          disabled: true
-        }]
-      }]
-    });
+    // baSidebarServiceProvider.addStaticItem({
+    //   title: 'Menu Level 1',
+    //   icon: 'ion-ios-more',
+    //   subMenu: [{
+    //     title: 'Menu Level 1.1',
+    //     disabled: true
+    //   }, {
+    //     title: 'Menu Level 1.2',
+    //     subMenu: [{
+    //       title: 'Menu Level 1.2.1',
+    //       disabled: true
+    //     }]
+    //   }]
+    // });
   }
 
 })();

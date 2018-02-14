@@ -6,8 +6,10 @@ var config = require('config.json');
 
 router.get('/', function (req, res) {
   // log user out
+
   if(req.session.token){
     delete req.session.token;
+    delete req.session.roles;
     delete req.session.userId;
   }
 

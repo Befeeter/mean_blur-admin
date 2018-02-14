@@ -1,0 +1,55 @@
+
+<!-- <li ng-repeat="item in smartTableData">
+     <a href="#">{{item}}</a>
+ </li> -->
+<div class="horizontal-scroll">
+  <div class="form-group select-page-size-wrap ">
+    <label>Rows on page
+      <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="smartTableData">
+    <thead>
+    <tr class="sortable ">
+      <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+      <th st-sort="Name">Name</th>
+      <th st-sort="Mobile">Mobile</th>
+      <th st-sort="Email">Email</th>
+      <th st-sort="Action">Action</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th><input st-search="Name" placeholder="Search Name" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="Mobile" placeholder="Search Mobile" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="Email" placeholder="Search Email" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th>
+      </th>
+      <th>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in smartTableData track by $index" id="customer_row_{{$index+1}}">
+      <td class="table-id">{{$index+1}}</td>
+      <td>{{item.name | uppercase}}</td>
+      <td>{{item.mobile}}</td>
+      <td>{{item.email}}</td>
+      <td><button class="btn btn-danger btn-xs btn-raised" data-toggle="modal" ng-click="changestatus(item._id, 2,$index)">Deactivate</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+{{smartTableData}}

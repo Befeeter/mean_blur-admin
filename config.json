@@ -1,7 +1,7 @@
 {
 	"connectionString": "mongodb://192.168.3.2:27017/champions_connect",
 	"apiUrl_backup": "http://champions_connect.onsisdev.info:3000/api",
-	"apiUrl": "http://localhost:3000/api",
+	"apiUrl": "http://localhost:6181/api",
     "secret": "WebSuperAdmin",
 	"encodeToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZWVyZW5kcmEiOiJkZXZlbmRyYSIsImlhdCI6MTQ3Mzg1MDYwNH0.YoeHbbF_GQdj1bvMwHzJU0R0KXyij11JfhL2HgyMEyg",
 	"androidServerKey":"AIzaSyDU7sSSDdJyQxzTcOQHGPQx40_MS1LQdGU",

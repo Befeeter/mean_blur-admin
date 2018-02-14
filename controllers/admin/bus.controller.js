@@ -6,7 +6,7 @@ var busService = require('services/bus.service');
 // routes
 router.post('/', saveData);
 router.post('/update', updateData);
-router.get('/getAll', getAll);
+router.get('/', getAll);
 router.post('/getById', getById);
 
 module.exports = router;
@@ -23,7 +23,7 @@ function saveData(req, res, next){
 
 
 function updateData(req, res, next){
-    
+
   busService.update(req.body._id,req.body)
   .then(function () {
     res.sendStatus(200);
@@ -48,7 +48,7 @@ function getAll(req, res, next){
 }
 
 function getById(req, res, next){
-  
+
    busService.getById(req.body.bus_id)
    .then(function (user) {
      if (user) {

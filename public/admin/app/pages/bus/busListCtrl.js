@@ -17,7 +17,7 @@
     $scope.data = {};
     $scope.smartTableData = [];
     // Getting data from db
-    $http.get("/admin/bus/getAll")
+    $http.get("/admin/bus")
     .success(function (data, status, headers){
       $scope.data.buses = data;
 

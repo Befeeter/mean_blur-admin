@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blur Admin</title>
+  <title>Champions Connect</title>
 
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 
@@ -36,8 +36,6 @@
   <!-- endbower -->
   <!-- endbuild -->
 
-  <!-- build:css({.tmp/serve,src}) styles/app.css -->
-  <!-- inject:css -->
   <link rel="stylesheet" href="app/main.css">
   <!-- endinject -->
   <!-- endbuild -->
@@ -59,7 +57,7 @@
   <footer class="al-footer clearfix">
     <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
     <div class="al-footer-main clearfix">
-      <div class="al-copy">NothingHub 2017</div>
+      <div class="al-copy">Companions Connect 2018</div>
       <ul class="al-share clearfix">
         <li><i class="socicon socicon-facebook"></i></li>
         <li><i class="socicon socicon-twitter"></i></li>
@@ -140,11 +138,12 @@
 <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
 <!-- inject:js -->
 <script src="app/pages/pages.module.js"></script>
-<script src="app/pages/demo/demo.module.js"></script>
+<script src="app/pages/unauthorised/unauthorised.module.js"></script>
 <script src="app/pages/bus/bus.module.js"></script>
 <script src="app/pages/city/city.module.js"></script>
+<script src="app/pages/customer/customer.module.js"></script>
 <script src="app/theme/theme.module.js"></script>
-<script src="app/pages/charts/charts.module.js"></script>
+<!-- <script src="app/pages/charts/charts.module.js"></script> -->
 <script src="app/pages/components/components.module.js"></script>
 <script src="app/pages/dashboard/dashboard.module.js"></script>
 <script src="app/pages/form/form.module.js"></script>
@@ -180,13 +179,15 @@
 <script src="app/theme/theme.service.js"></script>
 <script src="app/pages/profile/ProfileModalCtrl.js"></script>
 <script src="app/pages/profile/ProfilePageCtrl.js"></script>
-<script src="app/pages/demo/demoCtrl.js"></script>
+<script src="app/pages/unauthorised/unauthorisedCtrl.js"></script>
 <script src="app/pages/bus/busCtrl.js"></script>
 <script src="app/pages/bus/busListCtrl.js"></script>
 <script src="app/pages/bus/busEditCtrl.js"></script>
 <script src="app/pages/city/cityCtrl.js"></script>
 <script src="app/pages/city/cityListCtrl.js"></script>
 <script src="app/pages/city/cityEditCtrl.js"></script>
+<script src="app/pages/customer/customerListActiveCtrl.js"></script>
+<script src="app/pages/customer/customerListInactiveCtrl.js"></script>
 <script src="app/pages/tables/TablesPageCtrl.js"></script>
 <script src="app/theme/components/toastrLibConfig.js"></script>
 <script src="app/theme/directives/animatedChange.js"></script>

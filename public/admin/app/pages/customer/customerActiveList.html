@@ -1,0 +1,32 @@
+<div class="widgets">
+
+  <div class="row">
+
+    <div class="horizontal-scroll">
+      <table class="table table-hover">
+        <thead>
+          <tr class="black-muted-bg">
+            <th >#</th>
+            <th >Name</th>
+            <th >Mobile</th>
+            <th >Email</th>
+            <th >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in smartTableData track by $index" class="no-top-border" id="customer_row_{{$index+1}}" >
+            <td><span >{{$index+1}}</span></td>
+            <td><span >{{item.name | uppercase}}</span></td>
+            <td><span >{{item.mobile  }}</span></td>
+            <td><span >{{item.email}}</span></td>
+            <td><button class="btn btn-danger btn-xs btn-raised" data-toggle="modal" ng-click="changestatus(item._id, 2,$index)">Deactivate</button></td>
+            <!-- <td><button class="btn btn-danger btn-xs btn-raised" data-toggle="modal" ng-click="changestatus(item._id, 2);open('app/pages/customer/modal/dangerModal.html');">Deactivate</button></td> -->
+            <!-- <td><button class="btn btn-danger btn-xs btn-raised" data-toggle="modal" ng-click="open('app/pages/customer/modal/dangerModal.html','',item._id,2);">Deactivate</button></td> -->
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
