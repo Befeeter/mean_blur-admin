@@ -8,10 +8,17 @@ var bodyParser = require('body-parser');
 var expressJwt = require('express-jwt');
 var session = require('express-session');
 var ConnectRoles = require('connect-roles');
+var acl = require('acl');
+var mongoose = require('mongoose');
 
 var config = require('config.json');
 
 var app = express();
+
+//Making DB connection for ACL Module
+var dbconnection = mongoose.connect(config.connectionString, function(err) {
+    if(err) console.log('MongoDb: Connection error: ' + err);
+})
 
 // view engine setup
 app.set('view engine', 'html');
@@ -118,6 +125,35 @@ user.use("access admin page", function (req) {
 
       return true;
   }
+});
+
+
+// ACL User Role
+mongoose.connection.on('open', function (ref) {
+    console.log('Connected to mongo server.');
+    //var dbconnection = mongoose.connect('mongodb://localhost/acl-test', {});
+	var db = mongoose.connection;
+    console.log("Lets do this to " + db)
+    acl = new acl(new acl.mongodbBackend(db, "acl_"));
+
+// initialize acl system storing data in the redis backend
+//acl = new acl(new acl.mongodbBackend(dbconnection, "acl_"));
+
+    /* now assign permissions to roles */
+
+// allow guests to view posts
+    acl.allow("guest", "/index", "view");
+
+// allow registered users to view and create posts
+//acl.allow("registered users", "post", ["view", "create"]);
+
+// allow administrators to perform any action on posts
+//
+    acl.allow("administrator", "/", "*");
+});
+mongoose.connection.on('error', function (err) {
+    console.log('Could not connect to mongo server!');
+    console.log(err);
 });
 
 
