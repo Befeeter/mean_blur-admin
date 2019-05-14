@@ -4,15 +4,15 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
 	//check if session is exists
-	// if(req.session.token){
+	if(req.session.token){
 		
-		// var returnUrl = req.query.returnUrl && decodeURIComponent(req.query.returnUrl) || '/dashboard';
-		// res.redirect(returnUrl);
+		 var returnUrl = req.query.returnUrl && decodeURIComponent(req.query.returnUrl) || '/dashboard';
+		 res.redirect(returnUrl);
 
-	// 	res.sendFile(req.app.get("admin_path")+"index.html");
-	// }
+	 	res.sendFile(req.app.get("admin_path")+"index.html");
+	 }
 
-	res.sendFile(req.app.get("admin_path")+"auth.html");
+	res.sendFile(req.app.get("admin_path")+"index.html");
 
 });
 

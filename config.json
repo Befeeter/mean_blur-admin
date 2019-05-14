@@ -1,6 +1,6 @@
 {
-	"connectionString": "mongodb://bred:bred@ds151208.mlab.com:51208/bred-mongodb",
-	"apiUrl": "http://onitsway.onsisdev.info:3000/api",
+	"connectionString": "mongodb://Mean:Hola00==@localhost:27017/Data",
+	"apiUrl": "http://localhost:3000/api",
 	"apiUrl_local": "http://localhost:3000/api",
     "secret": "WebSuperAdmin",
 	"encodeToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZWVyZW5kcmEiOiJkZXZlbmRyYSIsImlhdCI6MTQ3Mzg1MDYwNH0.YoeHbbF_GQdj1bvMwHzJU0R0KXyij11JfhL2HgyMEyg",
